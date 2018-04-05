@@ -1,10 +1,11 @@
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+
 import { List } from '../list';
 import {Item} from '../item';
-
 import {ListService} from '../list.service';
 
-import { LIST } from '../mock-list';
 
 @Component({
   selector: 'app-shop',
@@ -15,7 +16,7 @@ export class ShopComponent implements OnInit {
 
   list: List;
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     console.log("in ngOnInit");
@@ -27,7 +28,8 @@ export class ShopComponent implements OnInit {
    * TODO Should use a parameter to load the right list
    */
   getList(): void{
-    this.list = this.listService.getList();
+    const id = this.route.snapshot.paramMap.get('id');
+    this.list = this.listService.getListById(id);
   }
 
   /**

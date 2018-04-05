@@ -1,3 +1,6 @@
+/**
+ * Define an object of type Item
+ */
 export class Item{
     name: string;
     picture: string;
