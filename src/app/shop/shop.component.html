@@ -1,0 +1,22 @@
+<nav>
+  <a class="btn btn-primary btn-sm" routerLink="">Home page</a>
+</nav>
+
+<div>Current shopping list {{list.name}}</div>
+
+<ul class="list-group" style="text-align: left;">
+  <li *ngFor="let item of list.items" class="list-group-item">
+    <div class="form-check form-check-inline" style="width:100%;">
+        <img src="{{item.picture}}" />
+        <span style="width:60%">{{item.name}}</span>
+        <span styLe="width:10%">qty : X</span>
+        <input type="checkbox" id="bought-{{item.name}}" value="true" style="display:none;">
+        <button class="btn  btn-lg" 
+          [class.btn-secondary]="item.status=='to buy'"
+          [class.btn-success]="item.status=='bought'"
+          [class.btn-warning]="item.status=='unavailable'"
+          (click)="updateStatusItem(item)"
+          >{{item.status}}</button>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,13 @@
+img{
+    width:20%;
+}
+
+.btn-no-bought{
+    width: 30%;
+    background-color: honeydew; 
+}
+
+.btn-bought{
+    width: 30%;
+    background-color: chartreuse; 
+}

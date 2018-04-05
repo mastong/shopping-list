@@ -1,0 +1,15 @@
+<div class="dropdown list-selector">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="listSelector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    List selector
+  </button>
+  <div class="dropdown-menu" aria-labelledby="listSelector">
+    <a *ngFor="let listName of listsName" class="dropdown-item" href="#">{{listName}}</a>
+  </div>
+</div>
+
+<nav class="nav-link">
+  <a class="btn btn-primary btn-sm" routerLink="/edit">Edit</a>
+</nav>
+<nav class="nav-link">
+  <a class="btn btn-primary btn-sm" routerLink="/shop">Shop !</a>
+</nav>
