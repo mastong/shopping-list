@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   { path:'shop/:id', component: ShopComponent},
-  {path:'edit', component: EditListComponent}
+  {path:'edit/:id', component: EditListComponent}
 ]
 
 @NgModule({

@@ -15,12 +15,24 @@ export class HomeComponent implements OnInit {
 
   constructor(private listService: ListService, private router: Router) { }
 
+  
+  /**
+   * If a list is selected, navigate to the edit view for this list.
+   * Else display a warning in the console.
+   */
+  navigateToEdit(){
+    this.navigate("/edit/");
+  }
 
   /**
    * If a list is selected, navigate to the shop view for this list.
    * Else display a warning in the console.
    */
   navigateToShop(){
+    this.navigate("/shop/");
+  }
+
+  private navigate(uri: String){
     if(! this.selectedListName){
       console.warn("No list selected yet!")
       return;
@@ -28,7 +40,7 @@ export class HomeComponent implements OnInit {
 
     let id = this.listService.getListByName(this.selectedListName).id
 
-    this.router.navigateByUrl("/shop/"+id).then(nav => {
+    this.router.navigateByUrl(""+uri + id).then(nav => {
       console.log(nav);
     }).catch(err => {
       console.error(err);
