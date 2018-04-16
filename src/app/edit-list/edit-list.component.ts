@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { List } from '../list';
+import {Item} from '../item';
+import {ListService} from '../list.service';
+
 @Component({
   selector: 'app-edit-list',
   templateUrl: './edit-list.component.html',
@@ -8,13 +12,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditListComponent implements OnInit {
 
-  listId: String;
+  list: List;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private listService: ListService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.listId = this.route.snapshot.paramMap.get("id");
-    console.debug("Going to edit list %s", this.listId);
+    this.list = this.listService.getListById(this.route.snapshot.paramMap.get('id'));
   }
 
+  removeItem(item){
+    this.listService.removeItemFromList(this.list, item);
+  }
+
+  popupAddItem(){
+    console.log("TODO > Should display a popup to add a new item");
+  }
 }

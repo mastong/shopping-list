@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { List } from './list';
+import { Item } from './item';
 
 @Injectable()
 export class ListService {
@@ -53,5 +54,9 @@ export class ListService {
     return this.mockCatalog.find(list =>{
       return list.id === id;
     });
+  }
+
+  removeItemFromList(list: List, toRemove: Item){
+    list.items = list.items.filter(item => item.name != toRemove.name);
   }
 }

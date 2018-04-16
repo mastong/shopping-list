@@ -19,17 +19,7 @@ export class ShopComponent implements OnInit {
   constructor(private listService: ListService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    console.log("in ngOnInit");
-    this.getList();
-  }
-
-  /**
-   * Return the list to display for shopping.
-   * TODO Should use a parameter to load the right list
-   */
-  getList(): void{
-    const id = this.route.snapshot.paramMap.get('id');
-    this.list = this.listService.getListById(id);
+    this.list =this.listService.getListById(this.route.snapshot.paramMap.get('id'));
   }
 
   /**
