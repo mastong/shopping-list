@@ -29,7 +29,7 @@ export class ListService {
 
   /**
    * Return the first list found in the catalog with the given name
-   * @param name 
+   * @param name
    */
   getListByName(name: String) : List{
     return this.mockCatalog.find(list =>{
@@ -48,7 +48,7 @@ export class ListService {
 
   /**
    * Return the first list found in the catalog with the given id
-   * @param id 
+   * @param id
    */
   getListById(id: String) : List{
     return this.mockCatalog.find(list =>{
@@ -58,5 +58,9 @@ export class ListService {
 
   removeItemFromList(list: List, toRemove: Item){
     list.items = list.items.filter(item => item.name != toRemove.name);
+  }
+
+  updateItem(toUpdate: Item){
+    console.log("Should replace the item in the list with the one in input : %o", toUpdate);
   }
 }

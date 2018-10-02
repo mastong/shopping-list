@@ -3,11 +3,11 @@
 </nav>
 
 <ul class="list-group" style="text-align: left;">
-    <li *ngFor="let item of list.items" class="list-group-item">
+    <li *ngFor="let item of list.items" class="list-group-item" (dblclick)="editItem(item)">
       <div class="form-check form-check-inline" style="width:100%;">
           <img src="{{item.picture}}" style="width:20%"/>
           <span style="width:60%">{{item.name}}</span>
-          <span styLe="width:10%">qty : X</span>
+          <span styLe="width:10%">qty : {{item.qty}}</span>
           <div style="width:10%">
             <button type="button" class="btn btn-default" (click)="removeItem(item)">
                 <span class="oi oi-x" aria-hidden="true"></span>
@@ -19,7 +19,7 @@
       <div class="form-check form-check-inline" style="width:100%;">
         <span style="width:90%; text-align:center">Add a new item</span>
         <div style="width:10%">
-            <button type="button" class="btn btn-default" (click)="popupAddItem()">
+            <button type="button" class="btn btn-default" (click)="addItem()">
                 <span class="oi oi-plus" aria-hidden="true"></span>
               </button>
           </div>
