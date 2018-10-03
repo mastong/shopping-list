@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 import {ListService} from '../list.service';
+import { ListHeader } from '../shared/models/list-header';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,12 @@ import {ListService} from '../list.service';
 })
 export class HomeComponent implements OnInit {
 
-  listsName: String[];
-  selectedListName: String;
+  listHeaders: ListHeader[] = [];
+  selectedListId: String;
 
   constructor(private listService: ListService, private router: Router) { }
 
-  
+
   /**
    * If a list is selected, navigate to the edit view for this list.
    * Else display a warning in the console.
@@ -33,14 +35,11 @@ export class HomeComponent implements OnInit {
   }
 
   private navigate(uri: String){
-    if(! this.selectedListName){
+    if(! this.selectedListId){
       console.warn("No list selected yet!")
       return;
     }
-
-    let id = this.listService.getListByName(this.selectedListName).id
-
-    this.router.navigateByUrl(""+uri + id).then(nav => {
+    this.router.navigate([uri, this.selectedListId]).then(nav => {
       console.log(nav);
     }).catch(err => {
       console.error(err);
@@ -48,7 +47,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listsName = this.listService.getAllListsNames();
+    this.listService.getAllListHeader().subscribe((listHeaders: ListHeader[]) => {
+      this.listHeaders = listHeaders;
+    });
   }
 
 }

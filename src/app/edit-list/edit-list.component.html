@@ -2,7 +2,7 @@
   <a routerLink="">Home page</a>
 </nav>
 
-<ul class="list-group" style="text-align: left;">
+<ul class="list-group" style="text-align: left;" *ngIf="list">
     <li *ngFor="let item of list.items" class="list-group-item" (dblclick)="editItem(item)">
       <div class="form-check form-check-inline" style="width:100%;">
           <img src="{{item.picture}}" style="width:20%"/>

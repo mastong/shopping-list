@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import {ListService} from './list.service';
 import { ItemModalComponent } from './edit-list/item-modal/item-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ItemModalComponent } from './edit-list/item-modal/item-modal.component'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     NgbModule

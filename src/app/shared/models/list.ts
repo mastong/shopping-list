@@ -1,4 +1,5 @@
 import {Item} from './item';
+import { ListHeader } from './list-header';
 
 /**
  * Define an object of type List
@@ -8,12 +9,8 @@ export class List{
      * List of all the items present on the shopping list
      */
     items: Item[];
-    /**
-     * The shopping list name to display
-     */
+
     name: String;
-    /**
-     * The shopping list id
-     */
-    id: String;    
+
+    id: String;
 }

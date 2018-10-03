@@ -2,10 +2,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
-import { List } from '../list';
-import {Item} from '../item';
+import { List } from '../shared/models/list';
+import {Item} from '../shared/models/item';
 import {ListService} from '../list.service';
-
 
 @Component({
   selector: 'app-shop',
@@ -19,12 +18,12 @@ export class ShopComponent implements OnInit {
   constructor(private listService: ListService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    this.list =this.listService.getListById(this.route.snapshot.paramMap.get('id'));
+    this.listService.getListById(this.route.snapshot.paramMap.get('id')).subscribe((list: List) => this.list = list);
   }
 
   /**
    * Update the status of the item in parameter
-   * @param item 
+   * @param item
    */
   updateStatusItem(item: Item){
       if(item.status == 'to buy'){
@@ -34,5 +33,5 @@ export class ShopComponent implements OnInit {
       }else{
           console.log('The item %s is in the status %s, so we keep it that way for now', item.name, item.status);
       }
-  }  
+  }
 }

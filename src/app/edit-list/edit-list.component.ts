@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-import { List } from '../list';
-import {Item} from '../item';
+import { List } from '../shared/models/list';
 import {ListService} from '../list.service';
 import {ItemModalComponent} from './item-modal/item-modal.component';
 
@@ -19,7 +18,7 @@ export class EditListComponent implements OnInit {
   constructor(private listService: ListService, private modalService: NgbModal, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.list = this.listService.getListById(this.route.snapshot.paramMap.get('id'));
+    this.listService.getListById(this.route.snapshot.paramMap.get('id')).subscribe((list: List) => { this.list = list;});
   }
 
   removeItem(item){
@@ -28,6 +27,8 @@ export class EditListComponent implements OnInit {
 
   editItem(item){
     const modalRef = this.modalService.open(ItemModalComponent);
+    modalRef.componentInstance.item = item;
+    modalRef.componentInstance.list = this.list;
   }
 
   addItem(){

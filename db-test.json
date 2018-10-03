@@ -1,0 +1,51 @@
+{
+  "lists": [
+    {
+      "id": "1",
+      "name": "Classic shopping list",
+      "items": [
+        {
+          "id": "1",
+          "name": "Coca",
+          "picture": "",
+          "qty": "1",
+          "status": "to buy"
+        },
+        {
+          "id": "2",
+          "name": "Purée de brocolis",
+          "picture": "pureedebrocolis.jpeg",
+          "qty": 2,
+          "status": "bought"
+        },
+        {
+          "id": "3",
+          "name": "Rumsteak",
+          "picture": "rumsteak.jpeg",
+          "qty": 3,
+          "status": "unavailable"
+        },
+        {
+          "id": "4",
+          "name": "Salade",
+          "picture": "salade.jpeg",
+          "qty": 1,
+          "status": "to buy"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Exotic shopping list",
+      "items": [
+        {
+          "id": "1",
+          "name": "Vélo",
+          "picture": "vélo.jpeg",
+          "qty": 1,
+          "status": "to buy"
+        }
+      ]
+    }
+  ]
+}

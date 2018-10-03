@@ -1,5 +1,5 @@
-<select class="" aria-labelledby="listSelector" [(ngModel)]="selectedListName">
-  <option *ngFor="let listName of listsName" class="" [value]="listName">{{listName}}</option>
+<select class="" aria-labelledby="listSelector" [(ngModel)]="selectedListId">
+  <option *ngFor="let listHeader of listHeaders" class="" [value]="listHeader.id">{{listHeader.name}}</option>
 </select>
 
 <nav class="nav-link">

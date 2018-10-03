@@ -2,6 +2,7 @@
  * Define an object of type Item
  */
 export class Item{
+    id: String;
     name: string;
     picture: string;
     qty: number;
